@@ -1,0 +1,1 @@
+web: gunicorn jimjam.wsgi --log-file -
