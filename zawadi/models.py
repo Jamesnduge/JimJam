@@ -25,3 +25,14 @@ class Profile(models.Model):
     def filter_by_id(cls, id):
         profile = Profile.objects.filter(user = id).first()
         return profile
+
+class Image(models.Model):
+    photo = ImageField(blank=True, manual_crop='')
+    profile = models.ForeignKey(User, on_delete=models.CASCADE)
+    def save_image(self):
+        self.save()
+    
+    @classmethod
+    def get_profile_images(cls, profile):
+        images = Image.objects.filter(profile__pk = profile)
+        return images

@@ -7,15 +7,13 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.template.loader import render_to_string
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from .forms import SignupForm, ProfileForm
-from .models import Profile
+from .forms import SignupForm, ProfileForm,ImageForm
+from .models import Profile, Image
 from django import forms
 
 @login_required(login_url='/')
 def home(request):
-    images = Image.get_all_images()
-    
-    return render(request, 'index.html', {'images':images})
+    return render(request, 'index.html')
 
 
 def signup(request):

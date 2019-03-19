@@ -9,4 +9,5 @@ urlpatterns = [
     url(r'^accounts/edit/',views.edit_profile, name='edit_profile'),
     url(r'^user/(?P<username>\w+)', views.profile, name='profile'),
     url(r'^$',views.signup, name='signup'),
+    url(r'^upload/$', views.upload_image, name='upload_image'),
 ]
