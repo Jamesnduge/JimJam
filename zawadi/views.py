@@ -7,8 +7,8 @@ from django.utils.http import urlsafe_base64_encode, urlsafe_base64_decode
 from django.template.loader import render_to_string
 from django.contrib.auth.models import User
 from django.contrib.auth.decorators import login_required
-from .forms import SignupForm, ImageForm, ProfileForm, CommentForm
-from .models import Image, Profile, Comments
+from .forms import SignupForm, ProfileForm
+from .models import Profile
 from django import forms
 
 @login_required(login_url='/')
