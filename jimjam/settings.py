@@ -15,8 +15,16 @@ import dj_database_url
 from decouple import config, Csv
 import django_heroku
 
-# Build paths inside the project like this: os.path.join(BASE_DIR, ...)
+
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+
+#email config
+EMAIL_USE_TLS = True
+EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'lilbratha@gmail.com'
+EMAIL_HOST_PASSWORD = 'smallbrother1234.'
+EMAIL_PORT = 587
 
 
 # Quick-start development settings - unsuitable for production
@@ -34,7 +42,9 @@ INSTALLED_APPS = [
     'zawadi',
     'pyuploadcare.dj',
     'tinymce',
+    'rest_framework',
     'bootstrap4',
+    'bootstrap3',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -97,8 +107,8 @@ else:
 ALLOWED_HOSTS = config('ALLOWED_HOSTS', cast=Csv())
 
 UPLOADCARE = {
-    'pub_key': config('pub_key'),
-    'secret': config('secret'),
+    'pub_key':'802984a5ef5bc3480dac' ,
+    'secret':'ed81d5fab73b903e5602' ,
 
 }
 
@@ -150,3 +160,4 @@ MEDIA_ROOT = os.path.join(BASE_DIR,'media')
 
 
 django_heroku.settings(locals())
+
